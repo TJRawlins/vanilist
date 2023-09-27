@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./themes/blue.css" class="themes" />
+    <script src="script.js" defer></script>
+    <title>Vanilist</title>
+  </head>
+  <body>
+    <div class="message-modal"><i class="fas fa-check-circle"></i>Saved</div>
+    <div class="cursor"></div>
+    <div class="container main-container">
+      <nav class="main-nav font-style-script">
+        <h1><i class="fas fa-th-list"></i>Vanilist</h1>
+        <div class="setting-menu">
+          <i class="fas fa-font"></i>
+          <ul class="menu-popout"></ul>
+          <i class="fas fa-palette"></i>
+          <ul class="menu-popout active">
+            <li id="blue-theme"></li>
+            <li id="yellow-theme"></li>
+            <li id="purple-theme"></li>
+            <li id="light-purple-theme"></li>
+            <li id="gray-theme"></li>
+          </ul>
+          <i class="fas fa-save"></i>
+        </div>
+      </nav>
+      <div class="todo-container">
+        <div class="input">
+          <input type="text" placeholder="New task" /><button
+            class="btn add-task"
+            type="button"
+          >
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <ul class="font-style-poppins"></ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,570 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Style+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap");
+
+:root {
+  /* Themes */
+  --blue-theme: rgba(64, 138, 180, 0.966);
+  --yellow-theme: rgba(180, 153, 64, 0.966);
+  --purple-theme: rgba(147, 64, 180, 0.966);
+  --light-purple-theme: rgba(181, 139, 197, 0.966);
+  --gray-theme: rgb(117, 117, 117);
+
+  --positive-color: green;
+  --negative-color: rgb(216, 2, 2);
+  --inset-shadow: inset rgba(0, 0, 0, 0.25) 1px 5px 3px;
+  --shadow: 0 4px 10px 0 rgb(0 0 0 / 40%);
+  /* --shadow: rgba(51, 51, 51, 0.5) -3px 5px 10px; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  /* font-family: "Poppins", sans-serif; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  /* background-image: url("https://source.unsplash.com/1600x900/?beach"); */
+  background-color: rgb(68, 68, 68);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.btn {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 0;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--secondary-btn-color);
+  color: var(--secondary-color);
+  box-shadow: var(--shadow);
+}
+
+.btn:active {
+  box-shadow: var(--inset-shadow);
+}
+
+.task-btn {
+  top: 6px;
+  color: var(--secondary-color);
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  text-justify: center;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding-top: 9px;
+  cursor: pointer;
+  transition: border-radius 0.25s ease-in-out;
+  box-shadow: var(--shadow);
+  z-index: 9;
+}
+
+.task-btn:hover {
+  border-radius: 10px;
+  border: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--background-box-color);
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(51, 51, 51, 0.25) 1px 1px 10px;
+  margin: 2rem 0 2rem 0;
+  border-top: var(--border-top-color) 5px solid;
+}
+
+/* Font Styles */
+.font-style-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-style-caveat {
+  font-family: "Caveat", cursive;
+}
+.font-style-script {
+  font-family: "Style Script", cursive;
+}
+
+/* -------------------------------------------------- MESSAGE MODAL */
+
+.message-modal {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--tertiary-color) 50%,
+    var(--primary-color) 100%
+  );
+  color: var(--primary-color);
+  font-size: 2rem;
+  border-bottom: 5px var(--border-top-color) solid;
+  z-index: 999;
+}
+
+.message-modal i {
+  padding-right: 0.5rem;
+}
+
+.message-modal.show {
+  top: 0;
+  opacity: 0;
+  box-shadow: var(--shadow);
+  transition: top 0.5s ease-in, opacity 0.5s ease-out 2s;
+}
+
+/* -------------------------------------------------- NAV BAR */
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  height: 50px;
+  width: 100%;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.main-nav h1 {
+  margin-top: 0.25rem;
+}
+
+.main-nav h1 i {
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+  color: var(--secondary-color);
+  transform: scaleX(-1);
+}
+
+/* -------------------------------------------------- MENU SETTINGS */
+
+.main-nav .setting-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.main-nav .setting-menu i {
+  position: relative;
+  margin-right: 0.5rem;
+  color: var(--border-top-color);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.main-nav .setting-menu i:hover {
+  transform: scale(1.25);
+  filter: drop-shadow(rgba(51, 51, 51, 0.5) -3px 2px 3px);
+  color: var(--tertiary-color);
+}
+
+.main-nav .setting-menu i:active {
+  color: var(--secondary-color);
+}
+
+.main-nav .setting-menu .menu-popout {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  top: 14px;
+  background-color: var(--secondary-color);
+  list-style-type: none;
+  padding: 6px;
+  padding-top: 25px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  z-index: -9999;
+}
+
+.main-nav .setting-menu .menu-popout.active {
+  max-width: 80px;
+  opacity: 1;
+  animation: bounce-6 0.3s ease;
+  z-index: 999;
+}
+
+.main-nav .setting-menu .fa-font + .menu-popout {
+  right: 103px;
+}
+
+.main-nav .setting-menu .fa-palette + .menu-popout {
+  right: 75px;
+}
+
+.main-nav .setting-menu .fa-palette + .menu-popout::before {
+  content: "Themes";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: var(--border-top-color);
+}
+
+.main-nav .setting-menu .fa-palette + .menu-popout li {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.main-nav .setting-menu .fa-palette + .menu-popout li:hover {
+  transform: scale(1.3);
+  border: 3px white solid;
+  box-shadow: var(--shadow);
+}
+
+.main-nav .setting-menu .fa-palette + .menu-popout li:active {
+  transform: scale(1);
+  box-shadow: none;
+}
+
+/* Themes */
+
+#blue-theme {
+  background-color: var(--blue-theme);
+}
+#yellow-theme {
+  background-color: var(--yellow-theme);
+}
+#purple-theme {
+  background-color: var(--purple-theme);
+}
+#light-purple-theme {
+  background-color: var(--light-purple-theme);
+}
+
+#gray-theme {
+  background-color: var(--gray-theme);
+}
+
+/* -------------------------------------------------- TODO CONTAINER / INPUT / ADD BTN */
+
+.main-container {
+  width: 40%;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  max-height: 90vh;
+}
+
+.todo-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.todo-container .input input {
+  background-color: #fff;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+}
+
+.todo-container .input input::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: var(--tertiary-color);
+  text-justify: center;
+}
+
+.todo-container .input input:focus,
+.todo-container ul li.task input.edit-task:focus {
+  outline: none;
+  border: 3px var(--primary-color) solid;
+}
+
+.todo-container .input button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--tertiary-color);
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.todo-container .input button:hover {
+  box-shadow: none;
+  color: var(--border-top-color);
+}
+
+.todo-container .input button:active {
+  color: var(--primary-color);
+}
+
+/* -------------------------------------------------- TASK LIST / TASKS */
+
+/* TASK LIST */
+.todo-container ul {
+  width: 100%;
+  height: 100%;
+  padding-right: 0.55rem;
+  overflow-y: scroll;
+  /* transform: translateX(100px); */
+}
+
+.todo-container ul::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.todo-container ul::-webkit-scrollbar-track {
+  box-shadow: var(--inset-shadow);
+  border-radius: 5px;
+}
+
+.todo-container ul::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  /* box-shadow: var(--shadow); */
+  border-radius: 5px;
+}
+
+.todo-container .input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 0.75rem 0;
+}
+
+/* TASK CONTAINER */
+.todo-container ul li.task {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0.1rem;
+  text-justify: center;
+  list-style-type: none;
+  z-index: -2;
+  transition: opacity 0.5s ease-in, transform 0.5s ease;
+  animation: move-task 0.3s ease-in-out 0s, bounce-6 0.3s ease;
+}
+
+/* TASK FIELD / EDIT FIELD */
+.todo-container ul li.task .task-field,
+.todo-container ul li.task input.edit-task {
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 100%;
+  text-transform: capitalize;
+  color: var(--secondary-color);
+  font-size: 1rem;
+  padding-top: 0.1rem;
+  margin-right: 3rem;
+  padding-left: 1rem;
+  transition: all 0.15s ease-in-out;
+}
+.todo-container ul li.task input.edit-task {
+  position: absolute;
+  width: 100%;
+  border-radius: 20px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 1px var(--secondary-color) solid;
+  border-right: none;
+  padding-top: 0;
+  z-index: 9;
+  transition: all 0.15s ease-in-out;
+}
+
+/* TIMESTAMP */
+.todo-container ul li.task .timestamp {
+  position: absolute;
+  bottom: 0;
+  left: 17px;
+  height: 20px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  opacity: 0.4;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* TASK COLOR ODDS/EVENS  */
+.todo-container ul li:nth-child(even) {
+  background-color: var(--border-top-color);
+}
+.todo-container ul li:nth-child(odd) {
+  background-color: var(--primary-color);
+}
+
+/* CROSSOUT LINE */
+.todo-container ul li.task .cross-out {
+  position: absolute;
+  top: 34%;
+  left: 15px;
+  width: 0;
+  height: 2px;
+  /* background-color: white; */
+  background-color: var(--negative-color);
+  transition: all 0.3s linear;
+}
+
+.todo-container ul li.task:hover .cross-out,
+.todo-container ul li.task.complete .cross-out {
+  width: 100%;
+}
+
+/* -------------------------------------------------- ADD EDIT BUTTON */
+.todo-container ul li.task i.add-edit {
+  position: absolute;
+  right: 10px;
+  background-color: var(--positive-color);
+  color: var(--secondary-color);
+  z-index: 10;
+}
+
+.todo-container ul li.task:hover {
+  background-color: var(--background-box-color);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  /* opacity: 0.5; */
+}
+
+.todo-container ul li.task.complete {
+  background-color: var(--tertiary-color);
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.todo-container ul li.task.complete .timestamp {
+  color: #000;
+}
+
+.todo-container ul li.task span:active {
+  box-shadow: none;
+}
+
+/* -------------------------------------------------- REMOVE BUTTON */
+.todo-container ul li.task i.remove-task {
+  position: absolute;
+  right: 10px;
+  color: var(--secondary-color);
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+.todo-container ul li.task i.remove-task:hover {
+  background-color: var(--negative-color);
+  border-radius: 20px;
+}
+
+.todo-container ul li.task i.remove-task:active {
+  box-shadow: var(--inset-shadow);
+}
+
+.todo-container ul li.task span:hover + i.remove-task,
+.todo-container ul li.task.complete i.remove-task:hover {
+  background-color: var(--negative-color);
+  color: var(--secondary-color);
+  box-shadow: var(--shadow);
+}
+
+.todo-container ul li.task.complete i.remove-task {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.todo-container ul li.task.complete:hover {
+  box-shadow: none;
+}
+
+/* -------------------------------------------------- Edit Button */
+.todo-container ul li.task i.fa-wrench {
+  position: absolute;
+  right: 45px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  opacity: 0;
+  z-index: 1;
+}
+
+.todo-container ul li.task.complete i.fa-wrench {
+  display: none;
+}
+
+.todo-container ul li.task:hover i.fa-wrench {
+  opacity: 1;
+}
+
+.todo-container ul li.task i.fa-wrench:hover {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------- Animations */
+
+@keyframes move-task {
+  0% {
+    transform: translateY(-45px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* @keyframes bounce-6 {
+  64% {
+    transform: scale(0.9, 1.1) translateY(0);
+  }
+  100% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+} */

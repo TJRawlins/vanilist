@@ -1,0 +1,8 @@
+:root {
+  /* Light Purple Theme */
+  --primary-color: rgb(114, 87, 153);
+  --secondary-color: rgb(238, 238, 238);
+  --tertiary-color: rgb(209, 209, 209);
+  --border-top-color: rgba(181, 139, 197, 0.966);
+  --background-box-color: rgba(144, 125, 146, 0.795);
+}

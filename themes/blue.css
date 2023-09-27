@@ -1,0 +1,8 @@
+:root {
+  /* Blue Theme */
+  --primary-color: rgba(41, 91, 121, 1);
+  --secondary-color: rgb(238, 238, 238);
+  --tertiary-color: rgb(209, 209, 209);
+  --border-top-color: rgba(64, 138, 180, 0.966);
+  --background-box-color: rgba(115, 134, 145, 0.795);
+}

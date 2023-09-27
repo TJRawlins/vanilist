@@ -1,0 +1,8 @@
+:root {
+  /* Yellow Theme */
+  --primary-color: rgb(73, 73, 73);
+  --secondary-color: rgb(228, 228, 228);
+  --tertiary-color: rgb(155, 155, 155);
+  --border-top-color: rgba(105, 105, 105, 0.966);
+  --background-box-color: rgba(160, 160, 160, 0.795);
+}
